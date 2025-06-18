@@ -1,3 +1,4 @@
+/* Variables CSS */
 :root {
     --matrix-green: #00FF41;
     --dark-green: #008000;
@@ -6,9 +7,15 @@
     --border-color: #008000;
     --hover-bg: #00FF41;
     --hover-text: #000;
-    --section-bg-opacity: rgba(0, 20, 0, 0.85); /* Fondo translúcido para secciones */
+    --section-bg-opacity: rgba(0, 20, 0, 0.85);
 }
 
+/* Reseteo y Box-sizing universal */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Estilos Generales del Body */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -19,43 +26,49 @@ body {
     line-height: 1.6;
 }
 
+/* Fondo de Lluvia de Matrix */
 #matrix-rain {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Permite que el contenido esté por encima */
+    z-index: -1;
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 4rem 2rem;
     position: relative;
-    z-index: 1; /* Asegura que el header esté sobre la lluvia de Matrix */
+    z-index: 1;
 }
 
-/* Animación para el efecto de latido/brillo del texto */
+/* Animación para el texto */
 @keyframes text-pulse {
     0% { text-shadow: 0 0 5px var(--matrix-green); }
-    50% { text-shadow: 0 0 15px var(--matrix-green), 0 0 20px rgba(0, 255, 65, 0.4); } /* Más brillo en el medio */
+    50% { text-shadow: 0 0 15px var(--matrix-green), 0 0 20px rgba(0, 255, 65, 0.4); }
     100% { text-shadow: 0 0 5px var(--matrix-green); }
 }
 
+/* Título Principal Glitch */
 .glitch {
     font-size: 3.5rem;
     position: relative;
-    animation: text-pulse 4s infinite alternate; /* Aplica solo la animación de latido */
+    animation: text-pulse 4s infinite alternate;
+    word-break: break-word;
 }
 
+/* Subtítulo H2 */
 h2 {
     color: var(--matrix-green);
     font-size: 1.5rem;
     text-shadow: 0 0 5px var(--matrix-green);
     margin-top: 0.5rem;
-    animation: text-pulse 4s infinite alternate; /* Aplica la misma animación de latido */
+    animation: text-pulse 4s infinite alternate;
 }
 
+/* Navegación del Header */
 header nav ul {
     list-style: none;
     padding: 0;
@@ -63,7 +76,7 @@ header nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Separación entre los botones del menú */
+    gap: 1.5rem;
 }
 
 header nav ul li a {
@@ -74,6 +87,7 @@ header nav ul li a {
     border: 1px solid var(--dark-green);
     transition: all 0.3s ease;
     text-shadow: 0 0 3px var(--matrix-green);
+    white-space: nowrap;
 }
 
 header nav ul li a:hover {
@@ -82,14 +96,16 @@ header nav ul li a:hover {
     box-shadow: 0 0 10px var(--matrix-green);
 }
 
+/* Contenido Principal */
 main {
     max-width: 960px;
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
-    z-index: 1; /* Asegura que el contenido principal esté sobre la lluvia de Matrix */
+    z-index: 1;
 }
 
+/* Secciones Generales */
 section {
     padding: 3rem 0;
 }
@@ -101,9 +117,10 @@ section h3 {
     margin-bottom: 2rem;
     text-shadow: 0 0 5px var(--matrix-green);
     color: var(--matrix-green);
+    word-break: break-word;
 }
 
-/* Estilo para los párrafos dentro de las secciones "Sobre Mí" y "Contacto" */
+/* Párrafos en "Sobre Mí" y "Contacto" */
 #sobre-mi > p,
 #contacto > p {
     margin-bottom: 1rem;
@@ -112,15 +129,18 @@ section h3 {
     border: 1px solid var(--dark-green);
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
     margin-top: 1rem;
+    text-align: justify;
+    hyphens: auto;
+    word-break: break-word;
 }
 
-/* Estilo para el separador de barras inclinadas */
+/* Separador barras inclinadas */
 .matrix-separator {
     text-align: center;
     margin: 4rem auto;
     width: 100%;
-    color: var(--text-color); 
-    font-size: 1.1rem; 
+    color: var(--text-color);
+    font-size: 1.1rem;
     text-shadow: 0 0 5px rgba(0, 255, 65, 0.1);
     overflow: hidden;
     white-space: nowrap;
@@ -128,7 +148,7 @@ section h3 {
     box-sizing: border-box;
 }
 
-/* Habilidades Section */
+/* Sección Habilidades */
 .habilidades-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -147,6 +167,7 @@ section h3 {
     margin-top: 0;
     margin-bottom: 1rem;
     text-shadow: 0 0 3px var(--matrix-green);
+    word-break: break-word;
 }
 
 .habilidad-categoria ul {
@@ -157,6 +178,7 @@ section h3 {
 .habilidad-categoria ul li {
     margin-bottom: 0.5rem;
     color: var(--text-color);
+    word-break: break-word;
 }
 
 .habilidad-categoria ul li::before {
@@ -165,7 +187,7 @@ section h3 {
     margin-right: 0.5rem;
 }
 
-/* Proyectos Section */
+/* Sección Proyectos */
 .proyecto {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -177,22 +199,31 @@ section h3 {
     box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
 }
 
+.proyecto-info {
+    min-width: 0;
+    padding: 0;
+}
+
 .proyecto-info h4 {
     font-size: 1.5rem;
     margin-top: 0;
     color: var(--matrix-green);
     text-shadow: 0 0 3px var(--matrix-green);
+    word-break: break-word;
 }
 
-.proyecto-info p {
+#proyectos .proyecto-info p {
     margin-bottom: 1rem;
     background-color: transparent;
     padding: 0;
     border: none;
     box-shadow: none;
-    text-align: justify; /* Justificado el texto */
+    text-align: justify;
+    hyphens: auto;
+    word-break: break-word;
 }
 
+/* Botones (GitHub, Contacto) */
 .btn-github, .btn-contact {
     display: inline-block;
     margin-top: 1rem;
@@ -203,6 +234,7 @@ section h3 {
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
     text-shadow: 0 0 2px var(--matrix-green);
+    white-space: nowrap;
 }
 
 .btn-github:hover, .btn-contact:hover {
@@ -211,19 +243,36 @@ section h3 {
     box-shadow: 0 0 15px var(--matrix-green);
 }
 
+/* Proyecto demo (video centrar) */
 .proyecto-demo {
-    display: flex; /* Para centrar el video */
-    justify-content: center; /* Para centrar el video horizontalmente */
-    align-items: center; /* Para centrar el video verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
-.proyecto-demo video {
-    width: 100%;
+/* Contenedor responsivo video */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
     border: 1px solid var(--dark-green);
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
 }
 
-/* Contacto Section */
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Sección Contacto */
 #contacto .contact-links {
     display: flex;
     flex-wrap: wrap;
@@ -232,17 +281,18 @@ section h3 {
     margin-top: 2rem;
 }
 
-/* Footer Section */
+/* Footer */
 footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
-    border-top: 1px solid var(--dark-green); /* Borde sutil como h2 */
-    color: var(--matrix-green); /* Mismo color que h2 */
-    font-size: 1.5rem; /* Mismo tamaño que h2 */
-    text-shadow: 0 0 5px var(--matrix-green); /* Mismo brillo que h2 */
+    border-top: 1px solid var(--dark-green);
+    color: var(--matrix-green);
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--matrix-green);
     line-height: 1.6;
-    animation: text-pulse 4s infinite alternate; /* Misma animación que h2 */
+    animation: text-pulse 4s infinite alternate;
+    word-break: break-word;
 }
 
 .prompt {
@@ -250,7 +300,15 @@ footer {
 }
 
 /* Media Queries para Responsividad */
+
+/* Hasta 768px (Tablets) */
 @media (max-width: 768px) {
+    header {
+        padding: 3rem 1.5rem;
+    }
+    main {
+        padding: 0 1.5rem;
+    }
     .glitch {
         font-size: 2.5rem;
     }
@@ -263,6 +321,7 @@ footer {
     }
     .proyecto {
         grid-template-columns: 1fr;
+        padding: 1rem;
     }
     .habilidades-grid {
         grid-template-columns: 1fr;
@@ -275,11 +334,36 @@ footer {
         margin-bottom: 1rem;
     }
     footer {
-        font-size: 1.2rem; /* Ajuste para el footer en tablets */
+        font-size: 1.2rem;
         padding: 1.5rem;
+    }
+    section {
+        padding: 2rem 0;
     }
 }
 
+/* Hasta 554px (pantallas chicas) */
+@media (max-width: 554px) {
+    .proyecto {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    .btn-github, .btn-contact {
+        width: 100%;
+        margin-right: 0;
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+    #proyectos .proyecto-info p {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+        word-break: break-word;
+    }
+}
+
+/* Hasta 480px (móviles pequeños) */
 @media (max-width: 480px) {
     header {
         padding: 2rem 1rem;
@@ -299,8 +383,61 @@ footer {
     .proyecto-info h4 {
         font-size: 1.3rem;
     }
+    #sobre-mi > p,
+    #contacto > p,
+    #proyectos .proyecto-info p {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+    }
+    .btn-github, .btn-contact {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
     footer {
-        font-size: 1rem; /* Ajuste para el footer en móviles */
+        font-size: 1rem;
         padding: 1rem;
+    }
+    section {
+        padding: 1.5rem 0;
+    }
+    .habilidad-categoria ul li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Hasta 375px (ultra pequeños) */
+@media (max-width: 375px) {
+    .glitch {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 0.9rem;
+    }
+    header nav ul li a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    section h3 {
+        font-size: 1.3rem;
+    }
+    .proyecto-info h4 {
+        font-size: 1.2rem;
+    }
+    footer {
+        font-size: 0.9rem;
+    }
+    main {
+        padding: 0 0.5rem;
+    }
+    header {
+        padding: 1.5rem 0.5rem;
+    }
+    .proyecto {
+        padding: 0.8rem;
+    }
+    #sobre-mi > p,
+    #contacto > p,
+    #proyectos .proyecto-info p {
+        padding: 0.6rem;
     }
 }
