@@ -1,0 +1,306 @@
+:root {
+    --matrix-green: #00FF41;
+    --dark-green: #008000;
+    --background-color: #000;
+    --text-color: #00FF41;
+    --border-color: #008000;
+    --hover-bg: #00FF41;
+    --hover-text: #000;
+    --section-bg-opacity: rgba(0, 20, 0, 0.85); /* Fondo translúcido para secciones */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+#matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Permite que el contenido esté por encima */
+}
+
+header {
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1; /* Asegura que el header esté sobre la lluvia de Matrix */
+}
+
+/* Animación para el efecto de latido/brillo del texto */
+@keyframes text-pulse {
+    0% { text-shadow: 0 0 5px var(--matrix-green); }
+    50% { text-shadow: 0 0 15px var(--matrix-green), 0 0 20px rgba(0, 255, 65, 0.4); } /* Más brillo en el medio */
+    100% { text-shadow: 0 0 5px var(--matrix-green); }
+}
+
+.glitch {
+    font-size: 3.5rem;
+    position: relative;
+    animation: text-pulse 4s infinite alternate; /* Aplica solo la animación de latido */
+}
+
+h2 {
+    color: var(--matrix-green);
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--matrix-green);
+    margin-top: 0.5rem;
+    animation: text-pulse 4s infinite alternate; /* Aplica la misma animación de latido */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Separación entre los botones del menú */
+}
+
+header nav ul li a {
+    color: var(--matrix-green);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--dark-green);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 3px var(--matrix-green);
+}
+
+header nav ul li a:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    box-shadow: 0 0 10px var(--matrix-green);
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1; /* Asegura que el contenido principal esté sobre la lluvia de Matrix */
+}
+
+section {
+    padding: 3rem 0;
+}
+
+section h3 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px var(--matrix-green);
+    color: var(--matrix-green);
+}
+
+/* Estilo para los párrafos dentro de las secciones "Sobre Mí" y "Contacto" */
+#sobre-mi > p,
+#contacto > p {
+    margin-bottom: 1rem;
+    background-color: var(--section-bg-opacity);
+    padding: 1rem;
+    border: 1px solid var(--dark-green);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+    margin-top: 1rem;
+}
+
+/* Estilo para el separador de barras inclinadas */
+.matrix-separator {
+    text-align: center;
+    margin: 4rem auto;
+    width: 100%;
+    color: var(--text-color); 
+    font-size: 1.1rem; 
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Habilidades Section */
+.habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.habilidad-categoria {
+    background-color: var(--section-bg-opacity);
+    padding: 1.5rem;
+    border: 1px solid var(--dark-green);
+}
+
+.habilidad-categoria h4 {
+    color: var(--matrix-green);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 3px var(--matrix-green);
+}
+
+.habilidad-categoria ul {
+    list-style: none;
+    padding: 0;
+}
+
+.habilidad-categoria ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.habilidad-categoria ul li::before {
+    content: '> ';
+    color: var(--matrix-green);
+    margin-right: 0.5rem;
+}
+
+/* Proyectos Section */
+.proyecto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    background-color: var(--section-bg-opacity);
+    padding: 1.5rem;
+    border: 1px solid var(--dark-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.proyecto-info h4 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: var(--matrix-green);
+    text-shadow: 0 0 3px var(--matrix-green);
+}
+
+.proyecto-info p {
+    margin-bottom: 1rem;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: justify; /* Justificado el texto */
+}
+
+.btn-github, .btn-contact {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--matrix-green);
+    color: var(--matrix-green);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    text-shadow: 0 0 2px var(--matrix-green);
+}
+
+.btn-github:hover, .btn-contact:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    box-shadow: 0 0 15px var(--matrix-green);
+}
+
+.proyecto-demo {
+    display: flex; /* Para centrar el video */
+    justify-content: center; /* Para centrar el video horizontalmente */
+    align-items: center; /* Para centrar el video verticalmente */
+}
+
+.proyecto-demo video {
+    width: 100%;
+    border: 1px solid var(--dark-green);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+/* Contacto Section */
+#contacto .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--dark-green); /* Borde sutil como h2 */
+    color: var(--matrix-green); /* Mismo color que h2 */
+    font-size: 1.5rem; /* Mismo tamaño que h2 */
+    text-shadow: 0 0 5px var(--matrix-green); /* Mismo brillo que h2 */
+    line-height: 1.6;
+    animation: text-pulse 4s infinite alternate; /* Misma animación que h2 */
+}
+
+.prompt {
+    color: var(--matrix-green);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    header nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .proyecto {
+        grid-template-columns: 1fr;
+    }
+    .habilidades-grid {
+        grid-template-columns: 1fr;
+    }
+    .btn-github, .btn-contact {
+        display: block;
+        width: calc(100% - 2rem);
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    footer {
+        font-size: 1.2rem; /* Ajuste para el footer en tablets */
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 2rem 1rem;
+    }
+    .glitch {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    main {
+        padding: 0 1rem;
+    }
+    section h3 {
+        font-size: 1.5rem;
+    }
+    .proyecto-info h4 {
+        font-size: 1.3rem;
+    }
+    footer {
+        font-size: 1rem; /* Ajuste para el footer en móviles */
+        padding: 1rem;
+    }
+}
